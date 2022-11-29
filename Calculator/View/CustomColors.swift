@@ -15,14 +15,6 @@ public enum CustomColor {
     static let darkOrchid = hexStringToUIColor(hex: "9932CC")
 }
 
-
-//func createCustomColor(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) -> UIColor{
-//    let color = UIColor(red: r/255/0, green: g/255.0, blue: b/255.0, alpha: a)
-//
-//    return color
-//}
-
-
 func hexStringToUIColor (hex:String) -> UIColor {
     var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
 
