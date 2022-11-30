@@ -8,7 +8,36 @@
 import UIKit
 
 final class MainViewController: UIViewController {
+    var isFinishedTyping : Bool = true
+    private var calculator = CalculatorLogic()
     
+    private var displayValue: Double{
+        get {
+            guard let number = Double(displayLabel.text!) else {
+                fatalError("Cannot convert display text to a double")
+            }
+            return number
+        }
+        set{
+            displayLabel.text = String(newValue.clean)
+        }
+    }
+    
+    private var calculationValue: String {
+        get{
+            return calculations.text ?? ""
+        }
+        set{
+            calculations.text = String(newValue)
+        }
+    }
+    
+    private let calculations: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "0"
+        return label
+    }()
     
     private let resultView : UIView = {
         let view = UIView()
@@ -19,7 +48,7 @@ final class MainViewController: UIViewController {
     
     private var displayLabel: UILabel = {
         let label = UILabel()
-        label.text = "23423423423"
+        label.text = "0"
         label.textAlignment = .right
         label.font = UIFont.boldSystemFont(ofSize: 35)
         label.textColor = UIColor.white
@@ -62,7 +91,7 @@ final class MainViewController: UIViewController {
         let button = ActionButton()
         button.setTitle(title, for: .normal)
         button.tag = Int(title) ?? 0
-//        button.font = UIFont.Weight.heavy
+        //        button.font = UIFont.Weight.heavy
         return button
     }
     private lazy var zero: ActionButton = createButtonAction(title: "0")
@@ -98,12 +127,15 @@ final class MainViewController: UIViewController {
         
         addViews()
         createConstraint()
+        //        addSubviewActionButton(array: calculatorElementes)
     }
-    func addSubviewActionButton(array: [ActionButton]){
-        for n in 1...array.count{
-            
-        }
-    }
+    
+    //    func addSubviewActionButton(array: [ActionButton])-> [UIStackView]{
+    //
+    //        array.forEach { item in
+    //            print(item)
+    //        }
+    //    }
     func addViews(){
         view.addSubview(resultView)
         view.addSubview(displayLabel)
@@ -111,6 +143,7 @@ final class MainViewController: UIViewController {
         view.addSubview(nextUnderDisplayLabel)
         
         view.addSubview(defaultNum)
+//        defaultNum.addTarget(self, action: #selector(numButtonPressed), for: . touchUpInside)
         view.addSubview(plusMinus)
         view.addSubview(percent)
         view.addSubview(deleteLastItem)
@@ -237,5 +270,65 @@ final class MainViewController: UIViewController {
             plus.leadingAnchor.constraint(equalTo: equal.trailingAnchor),
             plus.widthAnchor.constraint(equalToConstant: view.bounds.width / 4),
         ])
+    }
+    
+    
+    func calcButtonPressed(_ sender: ActionButton) {
+        //What should happen when a non-number button is pressed
+//        isFinishedTypingNumber = true
+        
+        calculator.setNumber(displayValue)
+        
+        if let calcMethod = sender.currentTitle {
+            
+            let result = calculator.calculate(symbol: calcMethod)
+            if let resultValue = result.result{
+                displayValue = resultValue
+            }
+            if let calcValue = result.calc {
+                calculationValue = calcValue
+            }
+            
+        }
+    
+    }
+
+    func backButtonPressed(_ sender: ActionButton) {
+        var isFinishedTypingNumber = true
+        if !isFinishedTypingNumber{
+            if let currentNumber = displayLabel.text {
+                var newNumber = String(currentNumber.dropLast())
+                if newNumber.count < 1{
+                    newNumber = "0"
+                    isFinishedTypingNumber = true
+                }
+                displayLabel.text =  newNumber
+            }
+        }
+    }
+    
+    
+    func numButtonPressed(sender: ActionButton){
+        var isFinishedTypingNumber = true
+        if let numValue = sender.currentTitle {
+            
+            if isFinishedTypingNumber{
+                displayLabel.text = numValue
+                isFinishedTypingNumber = false
+            }else{
+                
+                if numValue == "." {
+                    
+                    let isInt = floor(displayValue) == displayValue
+                    
+                    if !isInt {
+                        return
+                    }
+                }
+                
+                displayLabel.text = displayLabel.text! + numValue
+            }
+            
+        }
     }
 }

@@ -13,7 +13,7 @@
 		500038EF2930E81F0046673C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500038EE2930E81F0046673C /* MainViewController.swift */; };
 		500038F12930EB110046673C /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500038F02930EB110046673C /* ActionButton.swift */; };
 		500038F32930ED970046673C /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500038F22930ED970046673C /* CustomColors.swift */; };
-		500038F829362AF50046673C /* Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500038F729362AF50046673C /* Logic.swift */; };
+		500038FA293666220046673C /* CalculatorLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500038F9293666220046673C /* CalculatorLogic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		500038EE2930E81F0046673C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		500038F02930EB110046673C /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		500038F22930ED970046673C /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
-		500038F729362AF50046673C /* Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
+		500038F9293666220046673C /* CalculatorLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorLogic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +72,7 @@
 		500038F4293568DE0046673C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				500038F729362AF50046673C /* Logic.swift */,
+				500038F9293666220046673C /* CalculatorLogic.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -165,8 +165,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				500038DB2930E7E40046673C /* AppDelegate.swift in Sources */,
-				500038F829362AF50046673C /* Logic.swift in Sources */,
 				500038EF2930E81F0046673C /* MainViewController.swift in Sources */,
+				500038FA293666220046673C /* CalculatorLogic.swift in Sources */,
 				500038F32930ED970046673C /* CustomColors.swift in Sources */,
 				500038F12930EB110046673C /* ActionButton.swift in Sources */,
 			);
