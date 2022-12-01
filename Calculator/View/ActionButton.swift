@@ -30,8 +30,6 @@ class ActionButton: UIButton{
     override func layoutSubviews() {
         super.layoutSubviews()
         widthAnchor.constraint(equalTo: heightAnchor).isActive = true
-//        widthAnchor.constraint(equalToConstant: bounds.height / 4).isActive = true
-//        heightAnchor.constraint(equalToConstant: bounds.height / 4).isActive = true
         layer.cornerRadius = frame.height / 2
         
     }
