@@ -159,18 +159,6 @@ final class MainViewController: UIViewController {
         //        }
     }
     
-    //    @objc func backButtonPressed() {
-    //        if !isFinishedTypingNumber{
-    //            if let currentNumber = mainViews.displayLabel.text {
-    //                var newNumber = String(currentNumber.dropLast())
-    //                if newNumber.count < 1{
-    //                    newNumber = "0"
-    //                    isFinishedTypingNumber = true
-    //                }
-    //                mainViews.displayLabel.text =  newNumber
-    //            }
-    //        }
-    //    }
     
     //    @objc func numButtonPressed(_ sender: ActionButton) {
     //
