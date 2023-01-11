@@ -60,13 +60,12 @@
 		500038D92930E7E40046673C /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				500038DA2930E7E40046673C /* AppDelegate.swift */,
-				500038E32930E7E50046673C /* Assets.xcassets */,
+				500038E82930E7E50046673C /* Info.plist */,
 				500038F4293568DE0046673C /* Model */,
 				500038F5293568EF0046673C /* View */,
 				500038F6293569010046673C /* Controller */,
-				500038E52930E7E50046673C /* LaunchScreen.storyboard */,
-				500038E82930E7E50046673C /* Info.plist */,
+				50DC78B429395E0400B5780F /* App */,
+				50DC78B529395E2400B5780F /* Assets */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -74,6 +73,7 @@
 		500038F4293568DE0046673C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				500038F22930ED970046673C /* CustomColors.swift */,
 				500038F9293666220046673C /* CalculatorLogic.swift */,
 			);
 			path = Model;
@@ -83,7 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				500038F02930EB110046673C /* ActionButton.swift */,
-				500038F22930ED970046673C /* CustomColors.swift */,
 				50DC78B12938C5EE00B5780F /* MainViews.swift */,
 			);
 			path = View;
@@ -93,8 +92,25 @@
 			isa = PBXGroup;
 			children = (
 				500038EE2930E81F0046673C /* MainViewController.swift */,
+				500038E52930E7E50046673C /* LaunchScreen.storyboard */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		50DC78B429395E0400B5780F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				500038DA2930E7E40046673C /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		50DC78B529395E2400B5780F /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				500038E32930E7E50046673C /* Assets.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

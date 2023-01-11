@@ -10,12 +10,12 @@ import UIKit
 class MainViews: UIView{
     //MARK: - views
     
-    //    let calculations: UILabel = {
-    //        let label = UILabel()
-    //        label.translatesAutoresizingMaskIntoConstraints = false
-    //        label.text = "0"
-    //        return label
-    //    }()
+    let calculations: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "0"
+        return label
+    }()
     
     let resultView: UIView = {
         let view = UIView()
@@ -24,7 +24,7 @@ class MainViews: UIView{
         return view
     }()
     
-    let displayLabel: UILabel = {
+    var displayLabel: UILabel = {
         let label = UILabel()
         label.text = "0"
         label.textAlignment = .right
@@ -48,14 +48,17 @@ class MainViews: UIView{
         return label
     }()
     
-    func createButtonAction(title: String) -> ActionButton {
+    //MARK: -create BUTTON UI
+     func createButtonAction(title: String) -> ActionButton {
         let button = ActionButton()
         button.setTitle(title, for: .normal)
         button.tag = Int(title) ?? 0
         button.titleLabel?.font = UIFont.systemFont(ofSize: 30)
         //                button.font = UIFont.Weight.heavy
+        self.addSubview(button)
         return button
     }
+    
     lazy var zero = createButtonAction(title: "0")
     lazy var one = createButtonAction(title: "1")
     lazy var two = createButtonAction(title: "2")
@@ -104,46 +107,36 @@ class MainViews: UIView{
         self.layer.addSublayer(gradient)
         setupViews()
         setupConstraints()
+        
+//        self.one.addTarget(self, action: #selector(setter: calculations), for: .touchUpInside)
+//        one.addTarget(self, action: #selector(calculations), for: .touchUpInside)
+        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: -func
+    //MARK: -methods
     
     func setupViews(){
-        //        self.addSubview(calculations)
+        
+        self.addSubview(calculations)
         self.addSubview(resultView)
         self.addSubview(displayLabel)
         self.addSubview(underDisplayLabel)
         self.addSubview(nextUnderDisplayLabel)
-        
-        self.addSubview(defaultNum)
-        self.addSubview(plusMinus)
-        self.addSubview(percent)
-        self.addSubview(deleteLastItem)
-        self.addSubview(seven)
-        self.addSubview(eight)
-        self.addSubview(nine)
-        self.addSubview(divide)
-        self.addSubview(four)
-        self.addSubview(five)
-        self.addSubview(six)
-        self.addSubview(multiply)
-        self.addSubview(one)
-        self.addSubview(two)
-        self.addSubview(three)
-        self.addSubview(minus)
-        self.addSubview(dot)
-        self.addSubview(zero)
-        self.addSubview(equal)
-        self.addSubview(plus)
+
     }
     
+    //MARK: -setup constrainst 
     func setupConstraints(){
         self.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+            calculations.topAnchor.constraint(equalTo: self.topAnchor,constant: 100),
+            calculations.widthAnchor.constraint(equalToConstant: self.bounds.width),
+            calculations.heightAnchor.constraint(equalToConstant:  self.bounds.height/10),
+            
             resultView.topAnchor.constraint(equalTo: self.topAnchor, constant: 200),
             resultView.widthAnchor.constraint(equalToConstant: self.bounds.width),
             resultView.heightAnchor.constraint(equalToConstant: self.bounds.height / 8),
