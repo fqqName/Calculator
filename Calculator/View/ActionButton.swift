@@ -21,6 +21,7 @@ class ActionButton: UIButton{
     
     func setup(){
         translatesAutoresizingMaskIntoConstraints = false
+        setTitle("", for: .normal)
     }
     
     override func layoutSubviews() {

@@ -7,13 +7,7 @@
 
 import UIKit
 
-public enum OperationType {
-    case none
-    case add
-    case subtract
-    case multiply
-    case divide
-}
+
 
 struct CalculatorLogic {
     var numberOne: Double = 0
@@ -21,6 +15,13 @@ struct CalculatorLogic {
     
     var opertion = OperationType.none
     
+    enum OperationType {
+        case none
+        case add
+        case subtract
+        case multiply
+        case divide
+    }
     private mutating func clear(){
         numberOne = 0.0
         numberTwo = 0.0
@@ -28,20 +29,20 @@ struct CalculatorLogic {
     }
     
     
-    func calculateNum() -> String{
+    func calculateNum() -> Double{
         switch opertion{
         case .add:
-            return String(numberOne + numberTwo)
+            return numberOne + numberTwo
         case .subtract:
-            return String(numberOne - numberTwo)
+            return numberOne - numberTwo
         case .multiply:
-            return String(numberOne * numberTwo)
+            return numberOne * numberTwo
         case .divide:
             if (numberOne > 0 && numberTwo > 0){
-                return  String(numberOne / numberTwo)
-            }else{ return "0" }
+                return  numberOne / numberTwo
+            }else{ return 0 }
         case .none:
-            return "0"
+            return 0
         }
     }
 }
