@@ -14,6 +14,7 @@ struct CalculatorLogic {
     var numberTwo: Double = 0
     
     var opertion = OperationType.none
+    var number: Double?
     
     enum OperationType {
         case none
@@ -22,9 +23,14 @@ struct CalculatorLogic {
         case multiply
         case divide
     }
-    private mutating func clear(){
-        numberOne = 0.0
-        numberTwo = 0.0
+    
+    mutating func setNumber(_ number: Double){
+        self.number = number
+    }
+    
+    mutating func clear(){
+        numberOne = 0
+        numberTwo = 0
         opertion = OperationType.none
     }
     

@@ -14,7 +14,7 @@ final class MainViewController: UIViewController {
     private var isFinishedTypingNumber : Bool = true
     private var numberOneText: String = ""
     private var numberTwoText: String = ""
-    private var repeatCalc: Bool = false
+    var testNumber: Double = 0
     
     //        private var displayValue: Double {
     //            get{
@@ -40,23 +40,23 @@ final class MainViewController: UIViewController {
     //MARK: -loadView
     override func loadView() {
         self.view = MainViews(frame: UIScreen.main.bounds)
-        mainViews.displayLabel.text = "14"
+        mainViews.displayLabel.text = "0"
     }
     
     
     //MARK: -viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.mainViews.one.addTarget(self, action: #selector(addOne), for: .touchUpInside)
-        self.mainViews.two.addTarget(self, action: #selector(addTwo), for: .touchUpInside)
-        self.mainViews.three.addTarget(self, action: #selector(addThree), for: .touchUpInside)
-        self.mainViews.four.addTarget(self, action: #selector(addFour), for: .touchUpInside)
-        self.mainViews.five.addTarget(self, action: #selector(addFive), for: .touchUpInside)
-        self.mainViews.six.addTarget(self, action: #selector(addSix), for: .touchUpInside)
-        self.mainViews.seven.addTarget(self, action: #selector(addSeven), for: .touchUpInside)
-        self.mainViews.eight.addTarget(self, action: #selector(addEighth), for: .touchUpInside)
-        self.mainViews.nine.addTarget(self, action: #selector(addNine), for: .touchUpInside)
-        self.mainViews.zero.addTarget(self, action: #selector(addZero), for: .touchUpInside)
+        self.mainViews.one.addTarget(self, action: #selector(testPrintHello), for: .touchUpInside)
+        self.mainViews.two.addTarget(self, action: #selector(numButtonPress), for: .touchUpInside)
+        self.mainViews.three.addTarget(self, action: #selector(numButtonPress), for: .touchUpInside)
+        self.mainViews.four.addTarget(self, action: #selector(numButtonPress), for: .touchUpInside)
+        self.mainViews.five.addTarget(self, action: #selector(numButtonPress), for: .touchUpInside)
+        self.mainViews.six.addTarget(self, action: #selector(numButtonPress), for: .touchUpInside)
+        self.mainViews.seven.addTarget(self, action: #selector(numButtonPress), for: .touchUpInside)
+        self.mainViews.eight.addTarget(self, action: #selector(numButtonPress), for: .touchUpInside)
+        self.mainViews.nine.addTarget(self, action: #selector(numButtonPress), for: .touchUpInside)
+        self.mainViews.zero.addTarget(self, action: #selector(numButtonPress), for: .touchUpInside)
         
         self.mainViews.defaultNum.addTarget(self, action: #selector(resetData), for: .touchUpInside)
         self.mainViews.deleteLastItem.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
@@ -66,7 +66,8 @@ final class MainViewController: UIViewController {
         self.mainViews.minus.addTarget(self, action: #selector(subtract), for: .touchUpInside)
         self.mainViews.multiply.addTarget(self, action: #selector(multiply), for: .touchUpInside)
         self.mainViews.divide.addTarget(self, action: #selector(divide), for: .touchUpInside)
-//        addActionToActionButtons(array: mainViews.numberElements)
+        self.mainViews.equal.addTarget(self, action: #selector(equal), for: .touchUpInside)
+        //        addActionToActionButtons(array: mainViews.numberElements)
     }
     
     
@@ -76,35 +77,81 @@ final class MainViewController: UIViewController {
         }
     }
     
-//    func result(numberOne: String, numberTwo: String, operation: OperationType.Type) -> String{
-//        //        let numbers =  String(Int(numberOne) )
-//        return ""
-//    }
-    
     @objc func testPrintHello() {
         print("hello world")
         mainViews.displayLabel.text = "1488"
     }
-    //MARK: - calculator functions 
+    
+    //    func result(numberOne: String, numberTwo: String, operation: OperationType.Type) -> String{
+    //        //        let numbers =  String(Int(numberOne) )
+    //        return ""
+    //    }
+    
+    
+    //MARK: - calculator functions
+    func checkModelData() {
+        print("calculatorLogic opertion \(calculatorLogic.opertion) ")
+        print("num One = \(calculatorLogic.numberOne)")
+        print("num two = \(calculatorLogic.numberTwo)")
+    }
+    
     @objc func resetData() {
         mainViews.displayLabel.text! = "0"
+        isFinishedTypingNumber = true
+        calculatorLogic.clear()
+        checkModelData()
     }
     
     @objc func add() {
-        calculatorLogic.opertion = CalculatorLogic.OperationType.add
-        cleanStoreNum()
+        calculatorLogic.opertion = .add
+        isFinishedTypingNumber = false
+        if isFinishedTypingNumber == true {
+            
+            print("operation = \(calculatorLogic.opertion)")
+            calculatorLogic.calculateNum()
+        }else{
+            cleanStoreNum()
+        }
+        checkModelData()
     }
     
     @objc func subtract() {
+        if calculatorLogic.opertion != .none{
+            
+        }
         calculatorLogic.opertion = CalculatorLogic.OperationType.subtract
+        cleanStoreNum()
+        checkModelData()
     }
     
     @objc func divide() {
         calculatorLogic.opertion = CalculatorLogic.OperationType.divide
+        cleanStoreNum()
+        checkModelData()
     }
     
     @objc func multiply() {
         calculatorLogic.opertion = CalculatorLogic.OperationType.multiply
+        cleanStoreNum()
+        testPrintHello()
+    }
+    
+    @objc func equal() {
+        //        print(calculatorLogic.opertion)
+        //        mainViews.displayLabel.text! = String(calculatorLogic.calculateNum())
+        //        if (!isFinishedTypingNumber) {
+        //            calculatorLogic.numberTwo = Double(mainViews.displayLabel.text!) ?? 0
+        //            mainViews.displayLabel.text! = String(calculatorLogic.calculateNum())
+        //            isFinishedTypingNumber = true
+        //
+        //        }else{
+        //            calculatorLogic.numberOne = Double(calculatorLogic.calculateNum())
+        //            mainViews.displayLabel.text! = String(calculatorLogic.calculateNum())
+        //        }
+        print("calculatorLogic opertion \(calculatorLogic.opertion) ")
+        print("num One = \(calculatorLogic.numberOne)")
+        print("num two = \(calculatorLogic.numberTwo)")
+        
     }
     
     
@@ -115,184 +162,44 @@ final class MainViewController: UIViewController {
         mainViews.displayLabel.text! = numberTwoText
         numberOneText = ""
         numberTwoText = ""
+        checkModelData()
     }
     
     func cleanStoreNum() {
         print("cleanStoreNum")
         if (Float(mainViews.displayLabel.text!)! > 0) {
-            mainViews.displayLabel.text = "0"        }
+            mainViews.displayLabel.text = "0"
+            checkModelData()
+        }
     }
     
     @objc func backButtonPressed() {
-        if let currentNumber = mainViews.displayLabel.text {
-            var newNumber = String(currentNumber.dropLast())
-            if newNumber.count < 1{
-                newNumber = "0"
-                isFinishedTypingNumber = true
+        if !isFinishedTypingNumber {
+            if let currentNumber = mainViews.displayLabel.text {
+                var newNumber = String(currentNumber.dropLast())
+                if newNumber.count < 1{
+                    newNumber = "0"
+                    isFinishedTypingNumber = true
+                }
+                mainViews.displayLabel.text =  newNumber
             }
-            mainViews.displayLabel.text =  newNumber
         }
     }
-    
-    //TODO: - wtite switch if symbol = "symbol" then print "symbol"
-    
+
     //MARK: - numbers
-    @objc func addOne() {
-        if mainViews.displayLabel.text! == "0"{
-            mainViews.displayLabel.text! = numberOneText
-            mainViews.displayLabel.text! += String(mainViews.one.tag)
-        }else{
-            mainViews.displayLabel.text! += String(mainViews.one.tag)
-            print("add one")
+    @objc func numButtonPress(_ sender: ActionButton) {
+        if let numValue = sender.currentTitle{
+            if isFinishedTypingNumber {
+                if mainViews.displayLabel.text! == "0"{
+                    mainViews.displayLabel.text! = ""
+                    mainViews.displayLabel.text! = mainViews.displayLabel.text! + numValue
+                } else {
+                    mainViews.displayLabel.text! = mainViews.displayLabel.text! + numValue
+                }
+            }
         }
-        
+        checkModelData()
     }
-    
-    @objc func addTwo() {
-        if mainViews.displayLabel.text! == "0"{
-            mainViews.displayLabel.text! = numberOneText
-            mainViews.displayLabel.text! += String(mainViews.two.tag)
-        }else{
-            mainViews.displayLabel.text! += String(mainViews.two.tag)
-            print("add two")
-        }
-    }
-    
-    @objc func addThree() {
-        if mainViews.displayLabel.text! == "0"{
-            mainViews.displayLabel.text! = numberOneText
-            mainViews.displayLabel.text! += String(mainViews.three.tag)
-        }else{
-            mainViews.displayLabel.text! += String(mainViews.three.tag)
-            print("add three")
-        }
-    }
-    
-    @objc func addFour() {
-        if mainViews.displayLabel.text! == "0"{
-            mainViews.displayLabel.text! = numberOneText
-            mainViews.displayLabel.text! += String(mainViews.four.tag)
-        }else{
-            mainViews.displayLabel.text! += String(mainViews.four.tag)
-            print("add four")
-        }
-    }
-    
-    @objc func addFive() {
-        if mainViews.displayLabel.text! == "0"{
-            mainViews.displayLabel.text! = numberOneText
-            mainViews.displayLabel.text! += String(mainViews.five.tag)
-        }else{
-            mainViews.displayLabel.text! += String(mainViews.five.tag)
-            print("add five")
-        }
-    }
-    
-    @objc func addSix() {
-        if mainViews.displayLabel.text! == "0"{
-            mainViews.displayLabel.text! = numberOneText
-            mainViews.displayLabel.text! += String(mainViews.six.tag)
-        }else{
-            mainViews.displayLabel.text! += String(mainViews.six.tag)
-            print("add six")
-        }
-    }
-    
-    @objc func addSeven() {
-        if mainViews.displayLabel.text! == "0"{
-            mainViews.displayLabel.text! = numberOneText
-            mainViews.displayLabel.text! += String(mainViews.seven.tag)
-        }else{
-            mainViews.displayLabel.text! += String(mainViews.seven.tag)
-            print("add seven")
-        }
-    }
-    
-    @objc func addEighth() {
-        if mainViews.displayLabel.text! == "0"{
-            mainViews.displayLabel.text! = numberOneText
-            mainViews.displayLabel.text! += String(mainViews.eight.tag)
-        }else{
-            mainViews.displayLabel.text! += String(mainViews.eight.tag)
-            print("add eighth")
-        }
-    }
-    
-    @objc func addNine() {
-        if mainViews.displayLabel.text! == "0"{
-            mainViews.displayLabel.text! = numberOneText
-            mainViews.displayLabel.text! += String(mainViews.nine.tag)
-        }else{
-            mainViews.displayLabel.text! += String(mainViews.nine.tag)
-            print("add nine")
-        }
-    }
-    
-    @objc func addZero() {
-        if mainViews.displayLabel.text! == "0"{
-            mainViews.displayLabel.text! = numberOneText
-            mainViews.displayLabel.text! += String(mainViews.zero.tag)
-        }else{
-            mainViews.displayLabel.text! += String(mainViews.zero.tag)
-            print("add zero")
-        }
-    }
-    
-    //
-    //    @objc func addOperation() {
-    //        numberOneText = mainViews.displayLabel.text ?? ""
-    //        mainViews.displayLabel.text = ""
-    //
-    //    }
-    
-    
-    //    func calcButtonPressed(_ sender: ActionButton) {
-    //        print("one press")
-    //        //What should happen when a non-number button is pressed
-    //        isFinishedTypingNumber = true
-    //
-    //        calculatorLogic.setNumber(displayValue)
-    //
-    //        if let calcMethod = sender.currentTitle {
-    //
-    //            let result = calculatorLogic.calculate(symbol: calcMethod)
-    //            if let resultValue = result.result{
-    //                displayValue = resultValue
-    //            }
-    //            if let calcValue = result.calc {
-    //                calculationValue = calcValue
-    //            }
-    //        }
-    //    }
-    
-    
-    //    @objc func numButtonPressed(_ sender: ActionButton) {
-    //
-    //        //What should happen when a number is entered into the keypad
-    //
-    //        if let numValue = sender.currentTitle {
-    //
-    //            if isFinishedTypingNumber{
-    //                mainViews.calculations.text = numValue
-    //                isFinishedTypingNumber = false
-    //            }else{
-    //
-    //                if numValue == "." {
-    //
-    //                    let isInt = floor(displayValue) == displayValue
-    //
-    //                    if !isInt {
-    //                        return
-    //                    }
-    //                }
-    //
-    //                mainViews.calculations.text = mainViews.calculations.text! + numValue
-    //            }
-    //
-    //        }
-    //
-    //    }
-    
     
 }
 

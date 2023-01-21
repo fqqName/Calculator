@@ -111,6 +111,7 @@ class MainViews: UIView{
         
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -239,9 +240,6 @@ class MainViews: UIView{
             plus.widthAnchor.constraint(equalToConstant: self.bounds.width / 4),
         ])
         
-        
     }
-    
-    
     
 }
