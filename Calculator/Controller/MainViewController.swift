@@ -48,8 +48,6 @@ final class MainViewController: UIViewController {
         
         addActionToButton()
         
-
-
     }
     
     func addActionToButton() {
@@ -58,6 +56,7 @@ final class MainViewController: UIViewController {
         self.mainViews.dot.addTarget(self, action: #selector(numButtonPress), for: .touchUpInside)
         self.mainViews.deleteLastItem.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
     }
+    
     func addActionToActionButtons(array: [ActionButton]){
         for i in 0 ..< array.count {
             array[i].addTarget(self, action: #selector(numButtonPress), for: .touchUpInside)
