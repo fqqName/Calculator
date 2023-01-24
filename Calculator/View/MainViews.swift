@@ -80,8 +80,8 @@ class MainViews: UIView{
     lazy var dot = createButtonAction(title: ".")
     lazy var equal = createButtonAction(title: "=")
     
-    lazy var calculatorElementes: [ActionButton] = [zero, one, two, three, four, five, six, seven, eight, nine, plus, minus, plusMinus, divide, multiply, percent, deleteLastItem, defaultNum, dot, equal]
-    lazy var numberElements: [ActionButton] = [zero, one, two, three, four, five, six, seven, eight, nine]
+    lazy  var calculatorElementes: [ActionButton] = [plus, minus, plusMinus, divide, multiply, percent, defaultNum, equal, defaultNum]
+    lazy var numberElements: [ActionButton] = [zero, one, two, three, four, five, six, seven, eight, nine, dot]
     
     
     lazy var gradient: CAGradientLayer = {

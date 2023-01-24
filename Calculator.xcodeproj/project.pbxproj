@@ -14,6 +14,7 @@
 		500038F12930EB110046673C /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500038F02930EB110046673C /* ActionButton.swift */; };
 		500038F32930ED970046673C /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500038F22930ED970046673C /* CustomColors.swift */; };
 		500038FA293666220046673C /* CalculatorLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500038F9293666220046673C /* CalculatorLogic.swift */; };
+		50C0E430298023C200AFAF6A /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C0E42F298023C200AFAF6A /* Extension.swift */; };
 		50DC78B22938C5EE00B5780F /* MainViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DC78B12938C5EE00B5780F /* MainViews.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		500038F02930EB110046673C /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		500038F22930ED970046673C /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		500038F9293666220046673C /* CalculatorLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorLogic.swift; sourceTree = "<group>"; };
+		50C0E42F298023C200AFAF6A /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		50DC78B12938C5EE00B5780F /* MainViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,6 +77,7 @@
 			children = (
 				500038F22930ED970046673C /* CustomColors.swift */,
 				500038F9293666220046673C /* CalculatorLogic.swift */,
+				50C0E42F298023C200AFAF6A /* Extension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 			files = (
 				500038DB2930E7E40046673C /* AppDelegate.swift in Sources */,
 				500038EF2930E81F0046673C /* MainViewController.swift in Sources */,
+				50C0E430298023C200AFAF6A /* Extension.swift in Sources */,
 				500038FA293666220046673C /* CalculatorLogic.swift in Sources */,
 				500038F32930ED970046673C /* CustomColors.swift in Sources */,
 				500038F12930EB110046673C /* ActionButton.swift in Sources */,
@@ -327,7 +331,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = ZZ673AD454;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Calculator/Info.plist;
@@ -338,7 +342,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = pascal.Calculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -355,7 +359,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = ZZ673AD454;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Calculator/Info.plist;
@@ -366,7 +370,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = pascal.Calculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
